@@ -1,0 +1,31 @@
+.event-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+.left-event-container{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.left-event-container p{
+    padding: 10px 90px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.register-button{
+    padding: 8px 30px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.right-event-container{
+    width: 60%;
+}
