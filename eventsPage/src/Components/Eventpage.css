@@ -1,0 +1,16 @@
+.event-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+h1{
+    text-align: center;
+}
+.left-event-container{
+    width: 40%;
+}
+
+.right-event-container{
+    width: 60%;
+}
