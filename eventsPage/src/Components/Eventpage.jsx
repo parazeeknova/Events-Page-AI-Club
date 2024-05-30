@@ -31,10 +31,11 @@ const Eventpage = () => {
 
         <div className="left-event-container">
         <p className="context">
-  Immerse yourself in <span className="highlight"><span className="highlight-bg"></span>industry</span> insights through ideations, <span className="highlight"><span className="highlight-bg"></span>hackathons</span>,
-  and expert keynotes. Explore <span className="highlight"><span className="highlight-bg"></span>NLP, MLOps</span> , Computer Vision, etc.
-  <span className="highlight"><span className="highlight-bg"></span>Experience</span> hands-on workshops.
-</p>
+          Immerse yourself in <span className="highlight"><span className="highlight-bg"></span>industry</span> insights through ideations, <span className="highlight"><span className="highlight-bg"></span>hackathons</span>,
+          and expert keynotes. Explore <span className="highlight"><span className="highlight-bg"></span>NLP, MLOps</span> , Computer Vision, etc.
+          <span className="highlight"><span className="highlight-bg"></span>Experience</span> hands-on workshops.
+        </p>
+        
           <button className="register-button">Register Now</button>
         </div>
 
