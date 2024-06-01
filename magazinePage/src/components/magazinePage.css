@@ -3,24 +3,20 @@ body {
   background-color: #525659;
   font-family: Segoe UI, Tahoma, sans-serif;
 }
-
 .header input,
 .header button {
   font: inherit;
 }
-
 .header header {
   background-color: #323639;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
   color: white;
 }
-
 .header header h1 {
   font-size: inherit;
   margin: 0;
 }
-
 .container {
   display: flex;
   flex-direction: column;
@@ -28,30 +24,31 @@ body {
   margin: 10px 0;
   padding: 10px;
 }
-
 .container__load {
   margin-top: 1em;
   color: white;
 }
-
 .container__document {
   width: 100%;
   max-width: calc(100% - 2em);
   margin: 1em 0;
+  overflow: hidden;
 }
-
 .container__document .react-pdf__Document {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
 }
-
+.container__document .react-pdf__Document::-webkit-scrollbar {
+  display: none;
+}
 .container__document .react-pdf__Page {
   margin: 1em;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  width: calc(50vw - 2em);
+  height: calc(100vh - 4em);
 }
-
 .container__document .react-pdf__message {
-  padding: 20px;
+  padding: 10px;
   color: white;
 }

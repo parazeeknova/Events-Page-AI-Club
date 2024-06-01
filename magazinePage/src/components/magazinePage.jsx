@@ -18,9 +18,6 @@ const options = {
 };
 
 const resizeObserverOptions = {};
-
-const maxWidth = 800;
-
 export default function Sample() {
   const [file] = useState(samplePdf);
   const [numPages, setNumPages] = useState();
@@ -43,11 +40,11 @@ export default function Sample() {
   }
 
   function goToPreviousPage() {
-    setCurrentPage((prevPageNumber) => prevPageNumber - 1);
+    setCurrentPage((prevPageNumber) => Math.max(prevPageNumber - 2, 1));
   }
-
+  
   function goToNextPage() {
-    setCurrentPage((prevPageNumber) => prevPageNumber + 1);
+    setCurrentPage((prevPageNumber) => Math.min(prevPageNumber + 2, numPages));
   }
 
   return (
@@ -65,12 +62,12 @@ export default function Sample() {
           options={options}
         >
           {Array.from(new Array(numPages), (el, index) => (
-            <Page
-              key={`page_${index + 1}`}
-              pageNumber={index + 1}
-              width={containerWidth ? containerWidth / 2 : maxWidth}
-            />
-          ))}
+           <Page
+             key={`page_${index + 1}`}
+             pageNumber={index + 1}
+             width={containerWidth ? containerWidth / 2 : "auto"}
+           />
+         )).slice(currentPage - 1, currentPage + 1)}
          </Document>
         </div>
       </div>
