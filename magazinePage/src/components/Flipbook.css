@@ -1,20 +1,33 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-body{
-    background-color: #272727;
+body {
+  background-color: #272727;
   font-family: Segoe UI, Tahoma, sans-serif;
   overflow: hidden;
   height: 100vh;
   width: 100%;
 }
+.mag-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
 
-.mag-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
+.nav-bar button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
