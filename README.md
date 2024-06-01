@@ -16,6 +16,8 @@
 
 #### On site for Magazine Page:
 
-- Soon
+- Needs changes in navpill
+
+![Image](assets/Magazine.png)
 
 ---

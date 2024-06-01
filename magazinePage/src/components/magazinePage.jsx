@@ -48,12 +48,18 @@ export default function Sample() {
   }
 
   return (
+    <>
     <div className="header">
-      <header>
-        <h1>AI Magazine</h1>
-        <button onClick={goToPreviousPage}>Previous</button>
-        <button onClick={goToNextPage}>Next</button>
-      </header>
+    <div className="navbar">
+      <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <span className="page-number">{currentPage}</span>
+      <button onClick={goToNextPage} disabled={currentPage === numPages}>
+       Next
+      </button>
+    </div>
+    </div>
       <div className="container">
         <div className="container__document" ref={setContainerRef}>
         <Document
@@ -71,6 +77,6 @@ export default function Sample() {
          </Document>
         </div>
       </div>
-    </div>
+  </>
   );
 }
