@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React from 'react';
+import Sample from './components/magazinePage';
 
 const App = () => {
   return (
     <div>
-      <h1>Magazine Page</h1>
+      <Sample />
     </div>
   )
 }
