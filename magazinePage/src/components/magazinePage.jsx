@@ -5,6 +5,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
 import "./magazinePage.css";
+import samplePdf from './sample.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -21,10 +22,11 @@ const resizeObserverOptions = {};
 const maxWidth = 800;
 
 export default function Sample() {
-  const [file, setFile] = useState("./sample.pdf");
+  const [file] = useState(samplePdf);
   const [numPages, setNumPages] = useState();
   const [containerRef, setContainerRef] = useState(null);
   const [containerWidth, setContainerWidth] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const onResize = useCallback((entries) => {
     const [entry] = entries;
@@ -36,30 +38,26 @@ export default function Sample() {
 
   useResizeObserver(containerRef, resizeObserverOptions, onResize);
 
-  function onFileChange(event) {
-    const { files } = event.target;
-
-    const nextFile = files?.[0];
-
-    if (nextFile) {
-      setFile(nextFile);
-    }
-  }
-
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
+  }
+
+  function goToPreviousPage() {
+    setCurrentPage((prevPageNumber) => prevPageNumber - 2);
+  }
+
+  function goToNextPage() {
+    setCurrentPage((prevPageNumber) => prevPageNumber + 2);
   }
 
   return (
     <div className="header">
       <header>
         <h1>AI Magazine</h1>
+        <button onClick={goToPreviousPage}>Previous</button>
+        <button onClick={goToNextPage}>Next</button>
       </header>
       <div className="container">
-        <div className="container__load">
-          <label htmlFor="file">Load from file:</label>{" "}
-          <input onChange={onFileChange} type="file" />
-        </div>
         <div className="container__document" ref={setContainerRef}>
           <Document
             file={file}
@@ -77,7 +75,7 @@ export default function Sample() {
                   }
                 />
               </div>
-            ))}
+            )).slice(currentPage, currentPage + 2)}
           </Document>
         </div>
       </div>

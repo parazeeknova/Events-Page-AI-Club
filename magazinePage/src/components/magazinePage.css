@@ -4,11 +4,6 @@ body {
   font-family: Segoe UI, Tahoma, sans-serif;
 }
 
-.page-container {
-  float: left;
-  width: 50%;
-}
-
 .header input,
 .header button {
   font: inherit;
