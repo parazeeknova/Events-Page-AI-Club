@@ -51,16 +51,16 @@ export default function Sample() {
   }
 
   return (
-    <div className="Example">
+    <div className="header">
       <header>
-        <h1>AI Club's Magazine</h1>
+        <h1>AI Magazine</h1>
       </header>
-      <div className="Example__container">
-        <div className="Example__container__load">
+      <div className="container">
+        <div className="container__load">
           <label htmlFor="file">Load from file:</label>{" "}
           <input onChange={onFileChange} type="file" />
         </div>
-        <div className="Example__container__document" ref={setContainerRef}>
+        <div className="container__document" ref={setContainerRef}>
           <Document
             file={file}
             onLoadSuccess={onDocumentLoadSuccess}

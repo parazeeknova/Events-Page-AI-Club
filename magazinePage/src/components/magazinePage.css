@@ -9,24 +9,24 @@ body {
   width: 50%;
 }
 
-.Example input,
-.Example button {
+.header input,
+.header button {
   font: inherit;
 }
 
-.Example header {
+.header header {
   background-color: #323639;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
   color: white;
 }
 
-.Example header h1 {
+.header header h1 {
   font-size: inherit;
   margin: 0;
 }
 
-.Example__container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,29 +34,29 @@ body {
   padding: 10px;
 }
 
-.Example__container__load {
+.container__load {
   margin-top: 1em;
   color: white;
 }
 
-.Example__container__document {
+.container__document {
   width: 100%;
   max-width: calc(100% - 2em);
   margin: 1em 0;
 }
 
-.Example__container__document .react-pdf__Document {
+.container__document .react-pdf__Document {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Example__container__document .react-pdf__Page {
+.container__document .react-pdf__Page {
   margin: 1em 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
-.Example__container__document .react-pdf__message {
+.container__document .react-pdf__message {
   padding: 20px;
   color: white;
 }
