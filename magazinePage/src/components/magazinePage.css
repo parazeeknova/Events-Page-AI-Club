@@ -42,12 +42,12 @@ body {
 
 .container__document .react-pdf__Document {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  overflow-x: auto;
 }
 
 .container__document .react-pdf__Page {
-  margin: 1em 0;
+  margin: 1em;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 

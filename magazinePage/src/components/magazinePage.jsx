@@ -43,11 +43,11 @@ export default function Sample() {
   }
 
   function goToPreviousPage() {
-    setCurrentPage((prevPageNumber) => prevPageNumber - 2);
+    setCurrentPage((prevPageNumber) => prevPageNumber - 1);
   }
 
   function goToNextPage() {
-    setCurrentPage((prevPageNumber) => prevPageNumber + 2);
+    setCurrentPage((prevPageNumber) => prevPageNumber + 1);
   }
 
   return (
@@ -59,24 +59,19 @@ export default function Sample() {
       </header>
       <div className="container">
         <div className="container__document" ref={setContainerRef}>
-          <Document
-            file={file}
-            onLoadSuccess={onDocumentLoadSuccess}
-            options={options}
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <div className="page-container" key={`page_${index + 1}`}>
-                <Page
-                  pageNumber={index + 1}
-                  width={
-                    containerWidth
-                      ? Math.min(containerWidth, maxWidth)
-                      : maxWidth
-                  }
-                />
-              </div>
-            )).slice(currentPage, currentPage + 2)}
-          </Document>
+        <Document
+          file={file}
+          onLoadSuccess={onDocumentLoadSuccess}
+          options={options}
+        >
+          {Array.from(new Array(numPages), (el, index) => (
+            <Page
+              key={`page_${index + 1}`}
+              pageNumber={index + 1}
+              width={containerWidth ? containerWidth / 2 : maxWidth}
+            />
+          ))}
+         </Document>
         </div>
       </div>
     </div>
