@@ -1,6 +1,7 @@
 import React, { useState,useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import pdf from "./Edition_1.pdf";
+import turnSound from "./turn.mp3";
 import { Document, Page, pdfjs } from "react-pdf";
 import "./Flipbook.css";
 
@@ -22,6 +23,7 @@ function Flipbook() {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const book = useRef();
+  const audio = new Audio(turnSound);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -31,6 +33,7 @@ function Flipbook() {
     if (book.current) {
       book.current.pageFlip().flipPrev();
       setPageNumber(prevPageNumber => prevPageNumber - 1);
+      audio.play();
     }
   };
 
@@ -38,6 +41,7 @@ function Flipbook() {
     if (book.current) {
       book.current.pageFlip().flipNext();
       setPageNumber(prevPageNumber => prevPageNumber + 1);
+      audio.play();
     }
   };
 
@@ -90,6 +94,27 @@ function Flipbook() {
             </Pages>
           ))}
         </HTMLFlipBook>
+      </div>
+
+      <div className="bottom-bar">
+        <select>
+          <option>Edition 1</option>
+          <option>Edition 2</option>
+        </select>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
+            <path d="M17.5 17.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d="M7.5 11L14.5 11M11 7.5V14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
+            <path d="M17.5 17.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+            <path d="M7.5 11H14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
       </div>
 
     </>

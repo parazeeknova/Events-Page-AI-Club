@@ -64,15 +64,59 @@ body {
 .middleButton {
   display: flex;
   align-items: center;
-  margin-right: 1vh;
-  margin-left: 1vh;
+  margin-right: 2vh;
+  margin-left: 2vh;
 }
 
 .middleSymbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-right: 10px;
   padding-left: 10px;
 }
 
 .middleButton span {
   font-weight: bold;
+}
+
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 0 2vh 0;
+  padding: 10px 30px;
+  background-color: #161515;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.bottom-bar button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.bottom-bar select {
+  background-color: #161515;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  appearance: none;
+  border-radius: 5px;
+}
+
+.bottom-bar select:focus {
+  outline: none;
+}
+
+.bottom-bar select option {
+  background-color: #161515;
+  color: #fff;
 }
