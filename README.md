@@ -16,8 +16,8 @@
 
 #### On site for Magazine Page:
 
-- Needs changes in navpill
-
-![Image](assets/Magazine.png)
+| Flipped Pages (Responsive)     | Simple Viewer                   |
+| ------------------------------ | ------------------------------- |
+| ![Image 1](assets/Flipped.png) | ![Image 2](assets/Magazine.png) |
 
 ---
