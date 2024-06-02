@@ -1,6 +1,7 @@
 import React, { useState,useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
-import pdf from "./Edition_1.pdf";
+import pdf1 from "./Edition_1.pdf";
+import pdf2 from "./Edition_2.pdf";
 import turnSound from "./turn.mp3";
 import { Document, Page, pdfjs } from "react-pdf";
 import "./Flipbook.css";
@@ -30,19 +31,29 @@ function Flipbook() {
   };
 
   const goToPrevPage = () => {
-    if (book.current) {
+    if (book.current && pageNumber > 1) {
       book.current.pageFlip().flipPrev();
-      setPageNumber(prevPageNumber => prevPageNumber - 1);
+      setPageNumber(prevPageNumber => prevPageNumber - 2);
       audio.play();
     }
   };
 
   const goToNextPage = () => {
-    if (book.current) {
+    if (book.current && pageNumber < numPages) {
       book.current.pageFlip().flipNext();
-      setPageNumber(prevPageNumber => prevPageNumber + 1);
+      setPageNumber(prevPageNumber => prevPageNumber + 2);
       audio.play();
     }
+  };
+
+  const [pdf, setPdf] = useState(pdf1);
+
+  const handleButtonClick1 = () => {
+    setPdf(pdf2); 
+  };
+  
+  const handleButtonClick2 = () => {
+    setPdf(pdf1);
   };
 
   return (
@@ -97,10 +108,13 @@ function Flipbook() {
       </div>
 
       <div className="bottom-bar">
-        <select>
-          <option>Edition 1</option>
-          <option>Edition 2</option>
-        </select>
+        <div className="dropdown">
+          <button className="dropbtn">Change Edition</button>
+          <div className="dropdown-content">
+            <button className="edition" onClick={handleButtonClick2}>Edition 1</button>
+            <button className="edition" onClick={handleButtonClick1}>Edition 2</button>
+          </div>
+        </div>
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#ffffff" fill="none">
             <path d="M17.5 17.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -116,7 +130,6 @@ function Flipbook() {
           </svg>
         </button>
       </div>
-
     </>
   );
 }
