@@ -46,6 +46,11 @@ function Flipbook() {
     }
   };
 
+  const onFlip = (e) => {
+    setPageNumber(e.data + 1);
+    audio.play();
+  };
+
   const [pdf, setPdf] = useState(pdf1);
 
   const handleButtonClick1 = () => {
@@ -90,7 +95,7 @@ function Flipbook() {
       </div>
 
       <div className="mag-container">
-        <HTMLFlipBook ref={book} width={350} height={500} showCover={true}>
+        <HTMLFlipBook ref={book} width={350} height={500} showCover={true} onFlip={onFlip}>
           {[...Array(numPages).keys()].map((n) => (
             <Pages key={n} number={`${n + 1}`}>
               <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
